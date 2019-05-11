@@ -3,6 +3,9 @@ const fs = require('fs')
 const path = require('path')
 const mime = require('mime')
 
+const chatServer = require('./lib/chat_server')
+chatServer.listen(server)
+
 var cache = {}
 
 function send404 (response) {

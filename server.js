@@ -46,13 +46,7 @@ var server = http.createServer(function (request, response) {
   if (request.url === '/') {
     filePath = 'public/index.html'
   } else {
-    if (request.url.indexOf('socket.io') !== -1) {
-      // console.log(request.url)
-      // filePath = request.url
-      filePath = 'node_modules/socket.io-client/dist/socket.io.min.js'
-    } else {
-      filePath = 'public' + request.url
-    }
+    filePath = 'public' + request.url
   }
 
   var absPath = './' + filePath

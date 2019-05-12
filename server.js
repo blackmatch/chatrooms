@@ -3,9 +3,6 @@ const fs = require('fs')
 const path = require('path')
 const mime = require('mime')
 
-const chatServer = require('./lib/chat_server')
-chatServer.listen(server)
-
 var cache = {}
 
 function send404 (response) {
@@ -49,13 +46,22 @@ var server = http.createServer(function (request, response) {
   if (request.url === '/') {
     filePath = 'public/index.html'
   } else {
-    filePath = 'public' + request.url
+    if (request.url.indexOf('socket.io') !== -1) {
+      // console.log(request.url)
+      // filePath = request.url
+      filePath = 'node_modules/socket.io-client/dist/socket.io.min.js'
+    } else {
+      filePath = 'public' + request.url
+    }
   }
 
   var absPath = './' + filePath
 
   serverStatic(response, cache, absPath)
 })
+
+const chatServer = require('./lib/chat_server')
+chatServer.listen(server)
 
 server.listen(3000, function () {
   console.log('Server listening on port 3000.')

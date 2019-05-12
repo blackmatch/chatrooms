@@ -17,9 +17,11 @@ function processUserInput (chatApp, socket) {
     } else {
       chatApp.sendMessage($('#room').text(), message)
       $('#messages').append(divEscapedContentElement(message))
-      $('#messages').scrollTop($('#message').pro('scrollHeight'))
+      $('#messages').scrollTop($('#messages').prop('scrollHeight'))
     }
   }
+
+  console.log('btn clicked!')
 
   $('#send-message').val('')
 }

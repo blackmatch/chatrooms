@@ -23,8 +23,5 @@
     "url": "https://github.com/blackmatch/chatrooms/issues"
   },
   "homepage": "https://github.com/blackmatch/chatrooms#readme",
-  "dependencies": {
-    "socket.io": "~0.9.6",
-    "mime": "~1.2.7"
-  }
+  "dependencies": {}
 }
